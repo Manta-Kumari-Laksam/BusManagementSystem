@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Staff Delete</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+         body{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                background-color: black;
+            }
+         form{
+            background-color: #ffb900;
+            padding: 50px;
+            position: absolute;
+            top:100px;
+            left: 400px;
+        }
+         .btn{
+            border: none;
+            background-color: #ffffcc;
+            padding: 12px 24px;
+            cursor: pointer;
+            font-size: 15px;
+            margin-left: 5px;
+        }
+        input{
+              width: 100%;
+              padding: 10px 15px;
+              margin: 8px 0px;
+              border: 3px solid #ccc;
+              box-sizing: border-box;
+              height: 50px;
+        }
+            </style>
+    </head>
+    <body>
+        <div>
+            <form action="DeleteStaffServlet">
+                <h2>Enter password of the staff:</h2> <input type="text" name="pwd" placeholder="Enter password">
+                 <input type="submit" value="Delete" class="btn" style="padding: 10px 50px;"><br>
+            </form>
+        </div>
+    </body>
+</html>

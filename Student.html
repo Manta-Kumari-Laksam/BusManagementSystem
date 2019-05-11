@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student</title>
+	<style type="text/css"></style>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="project.css">
+	<link rel="stylesheet" type="text/css" href="Student.css">
+	<link rel="stylesheet" type="text/css" href="Faculties.css">
+	<link rel="stylesheet" type="text/css" href="animate.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css'  crossorigin='anonymous'>
+	<script src="myProjectScript1.js"></script>
+	<script src="Student.js"></script>
+	<script src="Faculties.js"></script>
+	<script type="text/javascript" src="jquery-3.3.1.js">	</script>
+        
+        <script type="text/javascript">
+            var request;
+            function sendInfo(){
+                var v=document.SearchForm.search.value;
+                var url="Search.jsp?val="+v;
+                
+                if(window.XMLHttpRequest){
+                    request=new XMLHttpRequest();
+                }else if(window.ActiveXObject){
+                    request=new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                try{
+                    request.onreadystatechange=getInfo;
+                    request.open("GET",url,true);
+                    request.send();
+                }
+                catch(e){
+                    alert("Unable to connect to the server");
+                }
+            }
+                function getInfo(){
+                    if(request.readyState==4){
+                        var val=request.responseText;
+                        document.getElementById("face1").innerHTML=val;
+                    }
+                }
+        </script>
+        
+       
+        <script type="text/javascript">
+                                    $(function(){
+                                        $('#view').click(function){
+                                            if(!$('#iframe').length){
+                                                $('#iframeholder').html('<iframe id="iframe" src="student.html" frameborder="0" height="100px" width="100px" scrolling="auto" align="middle"> </iframe>');
+                                            }
+                                                
+                                        });
+                                    });
+                                   
+                                    </script>
+
+</head>
+<body>
+<div class="main">
+	<div class="background"></div>
+	<div class="header">
+		<div class="logo">
+			<a href="#">
+				<img src="pics\buslogo.jpg" alt="bus logo" style="height: 70px;width: 100px; background-size: cover; border-radius: 30px;">
+			</a>
+
+			<div><span class="notification" onclick="openNav()" style="margin-left: 30px"><i class="fa fa-bars"></i>  Menu</span></div>
+		</div>
+		<div class="icons">
+			<a href="#" class="notification" onclick="laptop()">
+  			<i class="fas fa-laptop" style='font-size:24px'></i>
+  			<span class="badge">3</span>
+			</a>
+			<div class="popUp" id="popUpId1">
+				<div class="toDoDiv">
+				<h3 style="margin:5px">My To Do List</h3>
+ 					<input type="text" id="myInput" placeholder="To do list..." style="height: 35px">
+ 				    <span onclick="newElement()" class="addBtn">Add</span>
+				</div>
+					<ul id="myUL">
+					  <li>Finish yesterday's work</li>
+					  <li class="checked">Make faculty table</li>
+					  <li>Work in the backend</li>
+					  <li>Organize office</li>
+					</ul>
+			</div>
+
+			<a href="#" class="notification" onclick="envelop()">
+  			<i class="fas fa-envelope-open" style='font-size:24px'></i>
+  			<span class="badge">2</span>
+			</a>
+			<div class="popUp" id="popUpId2">
+				<a href="#">Your message 1</a><br>
+				<a href="#">Your message 2</a><br>
+			</div>
+
+			<a href="#" class="notification" id="bell" onclick="bell()">
+  			<i class="far fa-bell" style='font-size:24px'></i>
+  			<span class="badge">3</span>
+			</a>
+			<div class="popUp" id="popUpId3">
+				<a href="#">Your Notification 1</a><br>
+				<a href="#">Your Notification 2</a><br>
+				<a href="#">Your Notification 3</a><br>
+			</div>
+			
+
+		</div>
+		<div class="adminInfo">
+                    <div><form name="SearchForm"><input type="text" placeholder="Search.." name="search" class="input" onkeyup="sendInfo()">
+                             <button type="button" class="btn"><i class="fas fa-search"></i></button>
+                        </form>
+     	    </div>
+     	    <div class="logoutDivOuter">
+     	    	<img src="pics/login1.png" style="width: 50px; height: 35px;">
+     	        <a href="#" onclick="logoutModal()">[Logout]</a>
+     	    </div>
+		     	 <div class="logoutDiv" id="logoutDivId">
+				 	<div class="logoutDivContent" id="logoutDivContentId">
+				 	<span id="closeBtn">&times;</span>
+				 	<h3>Are you sure you want to logout?</h3>
+				 	<input type="button" value="Yes" class="btn" id="Yes" style="width: 80px">
+				 	<input type="button" value="No" class="btn" id="No" style="width:  80px">
+				 	</div>
+				</div>
+		</div>
+	</div>
+</div>
+	<div class="container">
+		<div class="left" id="leftId">
+		
+			  <div id="mySidenav" class="sidenav">
+			  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			  <a href="#faceId" onclick="face()">Dashboard</a>
+                          <a href="ScheduleServlet" onclick="studentTable()" id="showStudentId" style="text-decoration: none">Show All Schedule</a>
+			  <a href="RouteServlet" onclick="showRoute()" id="showRouteId" style="text-decoration: none">Show Top routes</a>
+			  <a href="#footerId">Contact</a>
+			</div>
+			<iframe  id="calender" src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=mantalaksamba%40gmail.com&amp;color=%231B887A&amp;ctz=Asia%2FKolkata" frameborder="0" scrolling="no">
+			 </iframe>
+			
+		</div>
+		<div class="right" id="rightId">
+				<!-- <audio controls>
+					<source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.mp4"
+         			type='audio/mp4'>
+				</audio> -->
+
+				<div class="face" id="faceId">
+					<div class="facebackground"></div>
+					<div class="facecontent" id="face1">
+					 <form action="SearchBusServlet" onsubmit="validateDate()">
+							<input type="text" name="from" placeholder="From" size="20">
+							<input type="text" name="to" placeholder="To" size="20">
+							<br><br>
+							<input type="text" name="onward" placeholder="Onward date" size="20">
+							<input type="text" name="return" placeholder="Return date" size="20"><br><br>
+
+							<button style="padding: 10px; background-color: green; color: white; border: none; border-radius: 30px"><i class="fas fa-search"></i> Search Bus</button>
+						</form>
+					</div>
+				</div>
+
+				<div class="viewTbl" id="viewTblId" style="display: none">
+					<button id="view"> click </button>
+                                            <div id="iframeholder">
+                                                
+                                             
+                                                 
+					</div>
+			    </div>
+                                
+                                
+
+			<div class="RouteNo" id="routeNoId" style="display: none">
+			<table id="table2" >
+					<caption><h2 style="color: black">Showing Top routes</h2></caption>
+
+				<tbody>
+					<tr>
+					<td><a href="#" class="busAnc">Baddi Campus to Pinjore</a> </td>
+				    <td><a href="#" class="busAnc">Baddi Campus to Pinjore</a> </td> 
+				    <td><a href="#" class="busAnc">Baddi Campus to Pinjore</a> </td>
+				</tr>
+				<tr>
+					<td><a href="#" class="busAnc">Baddi Campus to Pinjore</a> </td>
+				    <td><a href="#" class="busAnc">Baddi Campus to Pinjore</a> </td> 
+				    <td><a href="#" class="busAnc">Baddi Campus to Pinjore</a> </td>
+				</tr>
+				<tr>
+					<td><a href="#" class="busAnc">Baddi Campus to Pinjore</a> </td>
+				    <td><a href="#" class="busAnc">Baddi Campus to Pinjore</a> </td> 
+				    <td><a href="#" class="busAnc">Baddi Campus to Pinjore</a> </td>
+				</tr>
+				</tbody>
+			</table>
+		   </div>
+	</div>
+        </div>
+	<div class="footer" id="footerId">
+		
+		<div class="footerText" id="footerTextId">
+			<h1>Contact Us</h1>
+			<h2>Getting in touch is easy!</h2>
+			<h3>
+				Chitkara University.<br>
+				Baddi,Solan.<br>
+				Himachal Pradesh.<br>
+			</h3>
+			
+		</div>
+		<div class="footerLinks" id="footerLinksId">
+			<h2>Connect with us</h2><br>
+			<a href="#" class="fa fa-facebook"></a>
+			<a href="#" class="fa fa-twitter"></a>
+			<a href="#" class="fa fa-google"></a>
+		</div>
+					
+		<div class="footerForm" id="footerFormId">
+			<form method="post" action="#">
+				<h2>Suggestion</h2>
+				<input type="text"  name="name" placeholder="Name"><br>
+				<input type="email" name="email" placeholder="Email"><br>
+				<input type="text"  name="telephone" placeholder="Telephone"><br>
+				<input type="text" name="comment" placeholder="comment" style="height:80px;"><br>
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+	</div>
+    
+</body>
+</html>

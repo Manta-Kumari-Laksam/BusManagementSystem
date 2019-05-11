@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Success page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            
+	@keyframes logoutDivAni{
+		0%{
+			opacity: .4;
+			transform: translate(0,-50px);
+		}
+		100%{
+			opacity: 1;
+			transform: translate(0,200px);
+		}
+	}
+	.logoutDiv{
+			position: fixed;
+			left: 0px;
+			top: 0px;
+			z-index: 2;
+			background-color: rgba(0,0,0,.6);
+			width: 100%;
+			height: 100%;
+		}
+		.logoutDivContent{
+			position: relative;
+			background-color: #ffb900;
+			margin: auto;
+			width: 20%;
+			padding: 50px;
+			animation-name: logoutDivAni;
+			animation-direction: left;
+			animation-duration: 1s;
+			animation-fill-mode: forwards;
+		}
+
+	#closeBtn {
+			 color: white;
+			 float: right;
+			 font-size: 28px;
+			 font-weight: bold;
+		}
+
+		#closeBtn:hover,
+		#closeBtn:focus {
+			color: #000;
+			text-decoration: none;
+			cursor: pointer;
+		}
+          .btn{
+		padding: 10px;
+		cursor: pointer;
+		background-color: #cc99ff;
+		border: none;
+	}
+	.btn:hover{
+		background-color: black;
+		color: #cc99ff;
+	}
+        </style>
+    </head>
+    <body>
+        <div class="logoutDiv" id="logoutDivId">
+				 	<div class="logoutDivContent" id="logoutDivContentId">
+				 	<span id="closeBtn">&times;</span>
+				 	<h3>Updation Successful!</h3>
+				 	<input type="button" value="Update Again" class="btn" id="Yes" style="width: 100px">
+				 	<input type="button" value="Quit" class="btn" id="No" style="width:  80px">
+				 	</div>
+	</div>
+        <script>
+            	
+	      var lDiv=document.getElementById("logoutDivId");
+	      var closeBtn=document.getElementById("closeBtn");
+	      var yes=document.getElementById("Yes");
+	      var no=document.getElementById("No");
+
+	      lDiv.style.display="block";
+
+	      closeBtn.onclick= function() {
+	        lDiv.style.display="none";
+	      };
+	      yes.onclick = function(){
+	        window.location.href = "EditStaff.html";
+	      };
+	      no.onclick= function(){
+	        lDiv.style.display="none";
+	      };
+	      window.onclick= function(event) {
+	        if(event.target== logoutDivId){
+	          lDiv.style.display="none";
+	        }
+      };
+
+        </script>
+            
+    </body>
+</html>

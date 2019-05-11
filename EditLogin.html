@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Edit Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: black;
+            }
+            .btn{
+			border: none;
+			background-color: #ffffcc;
+			padding: 12px 24px;
+			cursor: pointer;
+			font-size: 15px;
+			margin-left: 5px;
+		}
+		.input{
+			  width: 100%;
+  			  padding: 12px 20px;
+ 			  margin: 8px 0px;
+  			  border: 3px solid #ccc;
+  			  box-sizing: border-box;
+		}
+                .containerTab{
+                    position: absolute;
+                    top: 100px;
+                    background-color: #ffb900;
+                    padding: 25px;
+                    border-radius: 20px;
+                }
+        </style>
+    </head>
+    <body>
+        <div id="b2" class="containerTab">
+	<form name="myForm2" action="LoginEditServlet" method="post">
+			<label><b>Username</b></label>  <br>
+			<input type="text" name="uname" placeholder="Enter Username" class="input"><br>
+ 			<label><b>Password</b></label> <br>
+ 			<input type="password" name="pwd1" placeholder="Enter Password" class="input"><br>
+ 			<label><b>Account Type</b></label><br>
+ 			<select name="user">
+ 				<option value="Student">Student</option>
+ 				<option value="Staff">Staff</option>
+ 				<option value="Admin">Admin</option>
+ 			</select>
+ 			<input type="submit" value="Update" class="btn" style="padding: 10px 50px;">
+ 		</form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Insert all schedule for admin&Staff</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body{
+                background-image: url("pics/bg10.jpg");
+                background-size: cover;
+                background-repeat: no-repeat;
+                padding: 50px;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+            }
+            .insertForm{
+                font-size: 30px;
+                color: white;
+            }
+                .btn{
+            border: none;
+            background-color: #ffffcc;
+            padding: 12px 24px;
+            cursor: pointer;
+            font-size: 15px;
+            margin-left: 5px;
+        }
+        .input{
+              width: 100%;
+              padding: 12px 20px;
+              margin: 8px 0px;
+              border: 3px solid #ccc;
+              box-sizing: border-box;
+        }
+       
+        </style>
+    </head>
+    <body>
+        <div>
+            <form class="insertForm" action="InsertServlet" method="post" onsubmit="return valid()">
+                Operator<input type="text" name="operator" class="input"><br>
+                Bus no.<input type="text" name="busno" class="input">  <br>
+                <h2>Route</h2>
+                From<input type="text" name="from" class="input">  <br>
+                To<input type="text" name="to" class="input">     <br>           
+                Driver<input type="text" name="driver" class="input"><br>
+                Departure<input type="text" name="departure" class="input"><br>
+                Arrival<input type="text" name="arrival" class="input"><br>
+                Fare<input type="text" name="fare" class="input"><br>
+                <input type="submit" value="Submit" class="btn" style="padding: 10px 50px;"><br>
+            </form>
+        </div>
+        
+          <script type="text/javascript">
+        function valid(){
+            var flag=true;
+            var op = document.forms["insertForm"]["operator1"].value;
+            var busno=document.forms["insertForm"]["busno1"].value;
+            if(op==""){
+                alert("Operator name cannot be empty");
+                flag=false;
+            }
+            if(busno==""){
+                alert("Bus no cannot be empty");
+                flag=false;
+            }
+            return flag;
+        }
+      </script>
+      
+    </body>
+
+</html>

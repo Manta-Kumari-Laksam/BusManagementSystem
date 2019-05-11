@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin page</title>
+	<style type="text/css"></style>
+	<link rel="stylesheet" type="text/css" href="project.css"/>
+	<link rel="stylesheet" type="text/css" href="Faculties.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <!--<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>-->
+
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css'  crossorigin='anonymous'/>
+	<script src="myProjectScript1.js"></script>
+	<script src="Faculties.js"></script>
+        <script type="text/javascript">
+            var request;
+            function sendInfo(){
+                var v=document.SearchForm.search.value;
+                var url="Search.jsp?val="+v;
+                
+                if(window.XMLHttpRequest){
+                    request=new XMLHttpRequest();
+                }else if(window.ActiveXObject){
+                    request=new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                try{
+                    request.onreadystatechange=getInfo;
+                    request.open("GET",url,true);
+                    request.send();
+                }
+                catch(e){
+                    alert("Unable to connect to the server");
+                }
+            }
+                function getInfo(){
+                    if(request.readyState==4){
+                        var val=request.responseText;
+                        document.getElementById("contentDivId").innerHTML=val;
+                    }
+                }
+        </script>
+</head>
+<body>
+<div class="main">
+	<div class="background"></div>
+	<div class="header">
+		<div class="logo">
+			<a href="#">
+				<img src="pics\buslogo.jpg" alt="bus logo" style="height: 70px;width: 100px; background-size: cover; border-radius: 30px;">
+			</a>
+
+			<div><span class="notification" onclick="openNav()" style="margin-left: 30px"><i class="fa fa-bars"></i>  Menu</span></div>
+		</div>
+		<div class="icons">
+			<a href="#" class="notification" onclick="laptop()">
+  			<i class="fas fa-laptop" style='font-size:24px'></i>
+  			<span class="badge">3</span>
+			</a>
+			<div class="popUp" id="popUpId1">
+				<div class="toDoDiv">
+					<h3 style="margin:5px">My To Do List</h3>
+ 					<input type="text" id="myInput" placeholder="To do list..." style="height: 35px">
+ 				    <span onclick="newElement()" class="addBtn">Add</span>
+				</div>
+					<ul id="myUL">
+					  <li>Finish yesterday's work</li>
+					  <li class="checked">Make faculty table</li>
+					  <li>Work in the backend</li>
+					  <li>Organize office</li>
+					</ul>
+			</div>
+
+			<a href="#" class="notification" onclick="envelop()">
+  			<i class="fas fa-envelope-open" style='font-size:24px'></i>
+  			<span class="badge">2</span>
+			</a>
+			<div class="popUp" id="popUpId2">
+				<a href="#">Your message 1</a><br>
+				<a href="#">Your message 2</a><br>
+			</div>
+
+			<a href="#" class="notification" id="bell" onclick="bell()">
+  			<i class="far fa-bell" style='font-size:24px'></i>
+  			<span class="badge">3</span>
+			</a>
+			<div class="popUp" id="popUpId3">
+				<a href="#">Your Notification 1</a><br>
+				<a href="#">Your Notification 2</a><br>
+				<a href="#">Your Notification 3</a><br>
+			</div>
+			
+
+		</div>
+		<div class="adminInfo">
+			<div><form name="SearchForm"><input type="text" placeholder="Search.." name="search" class="input" onkeyup="sendInfo()">
+                             <button type="button" class="btn"><i class="fas fa-search"></i></button>
+                        </form>
+     	    </div>
+     	    <div class="logoutDivOuter">
+     	    	<img src="pics/login1.png" style="width: 50px; height: 35px;">
+     	        <a href="#" onclick="logoutModal()">[Logout]</a>
+     	    </div>
+		     	 <div class="logoutDiv" id="logoutDivId">
+				 	<div class="logoutDivContent" id="logoutDivContentId">
+				 	<span id="closeBtn">&times;</span>
+				 	<h3>Are you sure you want to logout?</h3>
+				 	<input type="button" value="Yes" class="btn" id="Yes" style="width: 80px">
+				 	<input type="button" value="No" class="btn" id="No" style="width:  80px">
+				 	</div>
+				</div>
+		</div>
+	</div>
+</div>
+	<div class="container">
+		<div class="left" id="leftId">
+		
+			  <div id="mySidenav" class="sidenav">
+			  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			  <a href="#">Dashboard</a>
+			  <a href="#">Show student Table</a>
+			  <a href="#">Show Staff Table</a>
+			  <a href="#footerTextId">Contact</a>
+			</div>
+			<iframe  id="calender" src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=mantalaksamba%40gmail.com&amp;color=%231B887A&amp;ctz=Asia%2FKolkata" frameborder="0" scrolling="no">
+			 </iframe>
+			
+		</div>
+		<div class="right">
+			<div class="contentDiv" id="contentDivId" >
+				<button class="btn" >Make Changes in</button>
+	 			<div class="content" id="contentId">
+	 			<a class="anc" href="#" onclick="hiddenRightBusFunc()">Schedule table</a>
+	 			<a class="anc" href="#" onclick="hiddenRightStaffFunc()">Staff table</a>
+	 			<a class="anc" href="#" onclick="hiddenRightStuFunc()">Login table</a>
+ 				</div>
+ 			</div>
+ 			<div class="hiddenRight" id="hiddenRightBusId" style="display: none;">
+ 				<span id="closeBtn1">&times;</span>
+ 				<div class="flex-row">
+                                    <!--<div class="rightDiv"><a href="EditSchedule.jsp" style="text-decoration:none;color:white;">Delete Schedule</a></div>-->
+                                <div class="rightDiv"><a href="ScheduleServlet" style="text-decoration:none;color:white;">View Schedule</a></div>
+                                <div class="rightDiv"><a href="InsertSchedule.html" style="text-decoration:none;color:white;">Create Schedule</a></div>
+                                <div class="rightDiv"><a href="BeforeEditServlet" style="text-decoration:none;color:white;">Edit Schedule</a></div>
+ 				</div>
+ 			</div>
+ 			<div class="hiddenRight" id="hiddenRightStaffId" style="display: none;">
+ 				<span id="closeBtn2">&times;</span>
+ 				<div class="flex-row">
+                                <div class="rightDiv"><a href="StaffServlet" style="text-decoration:none;color:white;">View staff</a></div>
+                                <div class="rightDiv"><a href="StaffDetail.html" style="text-decoration:none;color:white;">Create staff</a></div>
+                                <div class="rightDiv"><a href="EditStaff.html" style="text-decoration:none;color:white;">Edit staff</a></div>
+ 				<div class="rightDiv"><a href="DeleteStaff.html" style="text-decoration:none;color:white;">Delete staff</a></div>
+
+                                </div>
+ 			</div>
+ 			<div class="hiddenRight" id="hiddenRightStuId" style="display: none;">
+ 				<span id="closeBtn3">&times;</span>
+ 				<div class="flex-row">
+                                    <div class="rightDiv"><a href="EditLogin.html" style="text-decoration:none;color:white;">Edit login database</a></div>
+                                    <div class="rightDiv"><a href="DisplayServlet" style="text-decoration:none;color:white;">View Login database</a></div>
+                                    <div class="rightDiv"><a href="newLogin.html" style="text-decoration:none;color:white;">Goto signup page</a></div>
+ 				</div>
+ 			</div>
+		</div>
+	</div>
+	
+	<div class="footer">
+		
+		<div class="footerText" id="footerTextId">
+			<h1>Contact Us</h1>
+			<h2>Getting in touch is easy!</h2>
+			<h3>
+				Chitkara University.<br>
+				Baddi,Solan.<br>
+				Himachal Pradesh.<br>
+			</h3>
+			
+		</div>
+		<div class="footerLinks" id="footerLinksId">
+			<h2>Connect with us</h2><br>
+			<a href="#" class="fa fa-facebook"></a>
+			<a href="#" class="fa fa-twitter"></a>
+			<a href="#" class="fa fa-google"></a>
+		</div>
+					
+		<div class="footerForm" id="footerFormId">
+			<form method="post" action="#">
+				<h2>Suggestion</h2>
+				<input type="text"  name="name" placeholder="Name"><br>
+				<input type="email" name="email" placeholder="Email"><br>
+				<input type="text"  name="telephone" placeholder="Telephone"><br>
+				<input type="text" name="comment" placeholder="comment" style="height:80px;"><br>
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+	</div>
+
+	<script>
+	
+</script>
+
+</body>
+</html>

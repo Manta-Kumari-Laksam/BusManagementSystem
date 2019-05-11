@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<style type="text/css">
+			@keyframes ani{
+			0%{
+				opacity: 0;
+			}
+			100%{
+				opacity: 1;
+			}
+		}
+
+		@keyframes img_ani{
+			0%{
+				transform: translate(0px,-20px);				
+				opacity: 0;
+			}
+			75%{
+				transform: translate(0px,10px);
+				opacity: 1;
+			}
+			100%{
+				transform: translate(0px,0px);
+			}
+		}
+
+		body{
+			margin: 0px;
+			/*opacity: 0.2;*/
+		}
+
+		.main{
+			justify-content: center;
+			align-items: center;
+			background-image: url("pics/bg1.jpg");
+			display: flex;
+			flex-direction: column;
+			padding: 10px;
+		}
+		.containerTab{
+			width: 80vh;
+			box-sizing: border-box;
+			/*padding: 20px;*/
+			flex: 1;
+			/*background-color: blue;*/
+		}
+
+	  	.containerTab form {
+			border: 3px solid white;
+			color: white;
+			font-size: 25px;
+			height:55vh;
+			background-size: cover;
+			animation-name: ani;
+			animation-duration: 4s;
+			animation-fill-mode: forwards;
+			box-shadow: 0px 0px 20px blue;
+			filter: alpha(opacity=60);
+		}
+
+		 img{
+		 	margin: 20px 0 10px 0;
+            flex: 1;
+			width: 20%;
+  			border-radius: 50%;
+  			animation-name: img_ani;
+  			animation-duration: 2s;
+  			animation-fill-mode: forwards;
+		}
+		.btn{
+			border: none;
+			background-color: #ffffcc;
+			padding: 12px 24px;
+			cursor: pointer;
+			font-size: 15px;
+			margin-left: 5px;
+		}
+		.input{
+			  width: 100%;
+  			  padding: 12px 20px;
+ 			  margin: 8px 0px;
+  			  border: 3px solid #ccc;
+  			  box-sizing: border-box;
+		}
+		.column {
+		  padding: 10px;
+		  text-align: center;
+		  font-size: 25px;
+		  cursor: pointer;
+		  color: black;
+		  flex: 1;
+		}
+		.row{
+			display: flex;
+			flex: 1;
+			background-color: white;
+			width: 80vh;
+			animation-name: ani;
+			animation-duration: 4s;
+			animation-fill-mode: forwards;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		
+			<img src="pics/login1.png" alt="login image">
+
+<div class="row">
+  <div class="column" onclick="openTab('b1');" id="column1" style="background-color: #ffb900;">
+    Sign In
+  </div>
+  <div class="column" onclick="openTab('b2');" id="column2">
+    Sign Up
+  </div>
+  <div style="clear: both;"></div>
+</div>
+
+<div id="b1" class="containerTab">
+  <!-- <span onclick="this.parentElement.style.display='none'" class="closebtn"></span> -->
+  <form name="myForm1" action="SignInServlet1" method="post" onsubmit="return myValidation1()">
+			<label><b>Username</b></label>  <br>
+			<input type="text" name="uname" placeholder="Enter Username" class="input"><br>
+ 			<label><b>Password</b></label> <br>
+ 			<input type="password" name="pwd" placeholder="Enter Password" class="input"><br>
+ 			<label><b>Account Type</b></label><br>
+ 			<select name="user">
+ 				<option value="Select">--Select--</option>
+ 				<option value="Student">Student</option>
+ 				<option value="Staff">Staff</option>
+ 				<option value="Admin">Admin</option>
+ 			</select>
+ 			<br><br>
+ 			<input type="submit" value="Login" class="btn"><br><br>
+ 			Forgot Password?
+ 			</form>
+</div>
+
+<div id="b2" class="containerTab" style="display:none;">
+  <!-- <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span> -->
+	<form name="myForm2" action="SignUpServlet" method="post" onsubmit="return myValidation2()">
+			<label><b>Username</b></label>  <br>
+			<input type="text" name="uname" placeholder="Enter Username" class="input"><br>
+ 			<label><b>Password</b></label> <br>
+ 			<input type="password" name="pwd1" placeholder="Enter Password" class="input"><br>
+ 			<label><b>Confirm Password</b></label> <br>
+ 			<input type="password" name="pwd2" placeholder="Re-Enter Password" class="input"><br>
+ 			<label><b>Account Type</b></label><br>
+ 			<select name="user">
+ 				<option value="Select">--Select--</option>
+ 				<option value="Student">Student</option>
+ 				<option value="Staff">Staff</option>
+ 				<option value="Admin">Admin</option>
+ 			</select>
+ 			<input type="submit" value="Register" class="btn" style="padding: 10px 50px;">
+ 		</form>
+</div>
+</div>
+
+
+ <script type="text/javascript">
+
+ 	function openTab(tabName) {
+		  var i, x,y;
+		  x = document.getElementsByClassName("containerTab");
+		  for (i = 0; i < x.length; i++) {
+		    x[i].style.display = "none";
+		  }
+		  document.getElementById(tabName).style.display = "block";
+//		  console.log(tabName);
+		  if(tabName=="b1"){
+		  	document.getElementById("column1").style.backgroundColor="#ffb900";
+		  	document.getElementById("column2").style.backgroundColor="white";
+
+		  }
+		  else{
+		  document.getElementById("column2").style.backgroundColor="#ffb900";
+		  document.getElementById("column1").style.backgroundColor="white";
+		 }
+		}
+
+	function myValidation1(){
+ 	var username=document.forms["myForm1"]["uname"].value; 
+ 	var password=document.forms["myForm1"]["pwd"];
+ 	var user=document.forms["myForm1"]["user"].value;
+    var flag=true;
+ 	if(username== ""){
+ 		alert("Name cannot be empty!");
+ 		flag= false;
+ 	}
+  
+ 	if(user=="Select"){
+ 		alert("Choose proper Account Type");
+ 		flag=false;
+ 	}
+ 	
+ 		var lcase= /[a-z]/g;
+ 		var Ucase= /[A-Z]/g;
+ 		var numbers= /[0-9]/g;
+ 		// var lcase= /![a-z]/g;
+ 		if(password.value=="")
+ 		{
+ 			alert("password cannot be empty!");
+ 		    flag= false;
+ 		}
+ 		else if(password.value.match(lcase) && password.value.match(Ucase) && password.value.match(numbers) && password.value.length > 8)
+ 		{
+ 			flag=true;
+ 		}
+ 		else{
+ 			alert("Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters");
+ 			flag=false;
+ 		}
+ 	return flag;
+ }
+    	function myValidation2(){
+ 	var username=document.forms["myForm2"]["uname"].value; 
+ 	var password1=document.forms["myForm2"]["pwd1"];
+        var password2=document.forms["myForm2"]["pwd2"];
+ 	var user=document.forms["myForm2"]["user"].value;
+ 	
+        var flag=true;
+ 	if(username==""){
+ 		alert("Name cannot be empty!");
+ 		flag= false;
+ 	}
+        console.log(user)
+ 	if(user=="Select"){
+ 		alert("Choose proper Account Type");
+//                document.getElementById("column2").style.display="block";
+ 		flag=false;
+ 	}
+ 	
+ 		var lcase= /[a-z]/g;
+ 		var Ucase= /[A-Z]/g;
+ 		var numbers= /[0-9]/g;
+
+ 		if(password1.value=="" || password2.value=="")
+ 		{
+ 			alert("password cannot be empty!");
+ 		    flag= false;
+ 		}
+ 		else if(password1.value.match(lcase) && password1.value.match(Ucase) && password1.value.match(numbers) && password1.value.length > 8)
+ 		{
+ 			flag=true;
+ 		}
+ 		else{
+ 			alert("Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters");
+ 			flag=false;
+ 		}
+//                console.log(password1.value +" : "+password2.value);
+ 	if(password2.value!= password1.value){
+            alert("Reconfirm password!");
+            flag=false;
+        }
+
+ 	return flag;
+ }
+ </script>
+
+</body>
+</html>

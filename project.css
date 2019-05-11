@@ -1,0 +1,488 @@
+body{
+	margin: 0px;
+}
+	.main{
+		display: flex;
+		flex-direction: row;
+	}
+	.background{
+		background-image: url("pics/bg8.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		position: fixed;
+		left: 0px;
+		top: 0px;
+		height: 100%;
+		width: 100%;
+		opacity: .8;
+		padding: 10px;
+		z-index: -1;
+		filter: blur(5px);
+	}
+
+	.header{
+		display: flex;
+		padding: 10px;
+		width: 100%;
+		/*background-color: #ffb900;*/
+                background-image: url("pics/f1.jpg");
+		background-repeat: no-repeat;
+		background-size: cover; 
+		z-index: 2;
+		box-sizing: border-box;
+		flex-wrap: wrap;
+	}
+	
+	.logo{
+		display: flex;
+		flex: 2;
+		flex-wrap: wrap;
+		/*background-color: black;*/
+		justify-content: center;
+		align-items: center;
+	}
+	.icons{
+		flex: 3;
+		padding: 20px;
+		flex-wrap: wrap;
+		/*background-color: orange;*/
+	}
+	#popUpId1{
+	  top: 12%;
+	  left: 23%;
+	  margin-left: -60px;
+	  background-color: #ff6699;
+	}
+	#popUpId2{
+	  top: 12%;
+	  left: 35%;
+	  margin-left: -60px;
+	  background-color: #ff6699;
+	}
+	.popUp{
+	  visibility: hidden;
+ 	  background-color:#ff6699;
+	  color: #fff;
+	  text-align: center;
+	  border-radius: 6px;
+	  padding: 35px 30px;
+	  position: absolute;
+	  z-index: 1;
+	  top: 12%;
+	  left: 42%;
+	  margin-left: -60px;
+	}
+	.popUp a{
+		text-decoration: none;
+		color: white;
+	}
+	.popUp a:hover{
+		opacity: .7;
+	}
+	.showPopUp{
+		visibility: visible;
+		animation-name: popUpAni;
+		animation-duration: 1s;
+		animation-fill-mode: forwards;
+	}
+	@keyframes popUpAni{
+		0%{
+			transform: scale(1.5,1);
+			opacity: .2;
+		}
+		100%{
+			transform: scale(1,1);
+			opacity: 1;
+		}
+	}
+	.popUp::before{
+		content: "";
+ 	    position: absolute;
+ 	    top: -30px;
+ 		left: 35%;
+ 	    margin-left: -5px;
+  		border-width: 15px;
+  		border-style: solid;
+ 	    border-color: transparent transparent #ff6699 transparent;
+	}
+
+	.notification{
+		background-color: white;
+		padding: 20px 10px;
+		border-radius: 50%;
+		margin: 10px;
+	}
+	.notification:hover{
+		opacity: .7;
+	}
+	.badge{
+		position: relative;
+		top: -25px;
+		right: -15px;
+		background-color: red;
+		padding: 5px 10px;
+		border-radius: 50%;
+		color: white;
+	}
+
+	.btn{
+		padding: 10px;
+		cursor: pointer;
+		background-color: #cc99ff;
+		border: none;
+	}
+	.btn:hover{
+		background-color: black;
+		color: #cc99ff;
+	}
+	.input{
+		padding: 10px;
+	}
+
+	.adminInfo{
+		flex: 4;
+		flex-wrap: wrap;
+		padding: 15px;
+		display: flex;
+		justify-content: flex-end;
+	}
+	.logoutDivOuter{
+		display: flex;
+		border-radius: 5px;
+		background-color: white;
+		padding: 2px;
+		width: 20%;
+		margin-left: 15px;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+	@keyframes logoutDivAni{
+		0%{
+			opacity: .4;
+			transform: translate(0,-50px);
+		}
+		100%{
+			opacity: 1;
+			transform: translate(0,200px);
+		}
+	}
+	.logoutDiv{
+			display: none;
+			position: fixed;
+			left: 0px;
+			top: 0px;
+			z-index: 2;
+			background-color: rgba(0,0,0,.6);
+			width: 100%;
+			height: 100%;
+		}
+		.logoutDivContent{
+			position: relative;
+			background-color: #ffb900;
+			margin: auto;
+			width: 20%;
+			padding: 50px;
+			animation-name: logoutDivAni;
+			animation-direction: left;
+			animation-duration: 1s;
+			animation-fill-mode: forwards;
+		}
+
+	#closeBtn {
+			 color: white;
+			 float: right;
+			 font-size: 28px;
+			 font-weight: bold;
+		}
+
+		#closeBtn:hover,
+		#closeBtn:focus {
+			color: #000;
+			text-decoration: none;
+			cursor: pointer;
+		}
+
+	.container{
+		display: flex;
+		padding: 25px;
+		position: relative;
+		width: 100%;
+		box-sizing: border-box;
+		flex-wrap: wrap;
+	}
+
+	.left{
+		flex:1;
+		display: flex;
+		position: relative;
+		background-image: url("pics/bg7.jpg");
+		background-size: cover;
+		background-repeat: no-repeat;
+		margin: 10px;
+	}
+	#calender{
+		position: relative;
+		height: 100%;
+		width: 100%;
+		z-index: 1;
+	}
+	.right{
+		position: relative;
+		background-color: #f1f1f1;
+		flex:3;
+		margin: 10px;
+		display: flex;
+		justify-content: center;;
+		align-items: center;
+		height: 80vh;
+		z-index: 1;
+		box-sizing:border-box;
+	}
+	.contentDiv{
+		padding: 20px;
+		animation-name: contentDivAni;
+		animation-duration: 1s;
+		animation-fill-mode: forwards;
+	}
+	@keyframes contentDivAni{
+		0%{
+			transform: translate(-10px,0px);
+			opacity: .1;
+			transform: rotate(40deg);
+		}
+		50%{
+			
+			transform: scale(1.2,1.2);
+		}
+		100%{
+			opacity: 1;
+			transform: translate(0px,0px);
+			transform: rotate(360deg);
+			transform: scale(1.5,1.5);
+		}
+	}
+
+	.content{
+			background-color: #459;
+			text-align: center;
+		}
+
+	.anc{
+			display: block;
+			text-decoration: none;
+			color: white;
+			padding: 10px;
+		}
+		.anc:hover{
+			background-color: #ffb900;
+		}
+
+	.hiddenRight{
+		height: 100%;
+		width: 100%;
+		background-color: rgba(9,100,205,.4);
+		justify-content: center;
+		align-items: center;
+		 display: flex;
+ 		 flex: 1;
+ 		 flex-wrap: wrap;
+ 		 box-sizing:border-box;
+ 	}
+	.rightDiv{
+		flex: 1;
+		width: 10%;
+		margin:40px;
+  		padding: 30px 80px;
+ 		background-color: #ffb900;
+ 	    display: flex;
+  		justify-content: center;
+  		align-items: center;
+  		flex-direction: row;
+  		color: white;
+  		border-radius: 20px;
+  		font-size: 25px;
+	}
+	.flex-row {
+ 	 display: flex;
+  	 flex: 1;
+     flex-direction: row;
+     flex-wrap: wrap;
+     box-sizing:border-box;
+ 	 padding: 50px;
+	}
+
+		#closeBtn1, #closeBtn2, #closeBtn3 {
+			 color: white;
+			 float: right;
+			 font-size: 28px;
+			 font-weight: bold;
+		}
+
+		#closeBtn1:hover,
+		#closeBtn1:focus, #closeBtn2:hover,
+		#closeBtn2:focus, #closeBtn3:hover,
+		#closeBtn3:focus{
+			color: #000;
+			text-decoration: none;
+			cursor: pointer;
+		}
+
+	.footer{
+		padding: 10px;
+		background-color: #ffb900;
+		position: relative;
+		background-image: url("pics/f1.jpg");
+		background-repeat: no-repeat;
+		background-size: cover; 
+		width: 100%;
+		display: flex;
+		box-sizing: border-box;
+		flex-wrap: wrap;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	}
+	.footerText{
+		flex: 1;
+		position: relative;
+		margin-right: 10px;
+		padding: 20px;
+		color: white;
+		visibility: hidden;
+	}
+	.footerForm{
+		display: flex;
+		flex: 1;
+		position: relative;
+		margin-left: 10px;
+		padding: 20px;
+		justify-content: center;
+		align-items: center;
+		color: white;
+		visibility: hidden;
+	}
+	.footerForm form{
+		height: 100%;
+		width: 100%;
+	}
+	.footerForm input{
+		 width: 100%;
+  		 padding: 12px 20px;
+ 		 margin: 8px 0px;
+  		 border: 3px solid #ccc;
+  		 box-sizing: border-box;
+	}
+
+	.footerLinks{
+		color: white;
+		flex: 1;
+		position: relative;
+		margin-left: 10px;
+		padding: 20px;
+		visibility: hidden;
+	}
+	.fa {
+	  padding: 20px;
+	  font-size: 30px;
+	  width: 30px;
+	  text-align: center;
+	  text-decoration: none;
+	  margin: 5px 2px;
+	  border-radius: 50%;
+	}
+
+	.fa:hover {
+	    opacity: 0.7;
+	}
+
+	.fa-facebook {
+	  background: #3B5998;
+	  color: white;
+	}
+
+	.fa-twitter {
+	  background: #55ACEE;
+	  color: white;
+	}
+
+	.fa-google {
+	  background: #dd4b39;
+	  color: white;
+	}
+
+	.SlideUp{
+			 animation-name: slideUp;
+  			 animation-duration: 2s;
+  			 animation-fill-mode: forwards;
+  			
+		}
+		@keyframes slideUp{
+		  0% {
+   				 opacity: 0;
+    			transform: translateY(70%);
+  			} 
+  		100% {
+    			opacity: 1;
+    			transform: translateY(0%);
+    			visibility: visible;
+ 			 }
+		}
+
+		.SlideDown{
+			 animation-name: slideDown;
+  			 animation-duration: 2s;
+  			 animation-fill-mode: forwards;
+  			
+		}
+
+		@keyframes slideDown{
+			 0% {
+   				 opacity: 0;
+    			transform: translateY(-50%);
+  			} 
+  		100% {
+    			opacity: 1;
+    			transform: translateY(0%);
+    			visibility: visible;
+ 			 }
+		}
+
+	.sidenav {
+ 	 height: 90%;
+ 	 width: 0;
+ 	 position: relative;
+ 	 z-index: 3;
+ 	 top: 0;
+ 	 left: 0;
+ 	 background-color: rgba(0,0,0,.3);
+ 	 overflow-x: hidden;
+ 	 transition: 0.5s;
+ 	 padding-top: 60px;
+	}
+
+	.sidenav a {
+ 	 padding: 8px 8px 8px 32px;
+ 	 text-decoration: none;
+  	 font-size: 25px;
+  	 color: black;
+     display: block;
+     transition: 0.3s;
+	}
+
+	.sidenav a:hover {
+ 	 color: #f1f1f1;
+	}
+
+	.sidenav .closebtn {
+ 	 position: absolute;
+ 	 top: 0;
+ 	 right: 25px;
+ 	 font-size: 36px;
+ 	 margin-left: 50px;
+	}
+
+	@media(max-width: 700px){
+		  .header, .container,.icons, .logo, .adminInfo{
+		  	flex-direction: column;
+		  }
+        }

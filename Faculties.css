@@ -1,0 +1,154 @@
+/*
+	*{
+		box-sizing: border-box;
+	}*/
+
+	.toDoDiv:after {
+	  content: "";
+	  display: table;
+	  clear: both;
+	}
+
+	ul{
+		margin: 0;
+		padding: 0;
+	}
+	ul li{
+		list-style-type: none;
+		padding:12px 8px 12px 40px;
+		cursor: pointer;
+		background-color: lightpink;
+		transition: 0.2s;
+		position: relative;
+		 user-select: none;
+	}
+
+	ul li:nth-child(odd){
+		background-color: #ff6699;
+	}
+
+	ul li:hover {
+ 	 background: #ddd;
+	}
+
+	ul li.checked {
+	  background: green;
+	  color: #fff;
+	  text-decoration: line-through;
+	}
+
+	ul li.checked::before {
+	  content: '';
+	  position: absolute;
+	  border-color: #fff;
+	  border-style: solid;
+	  border-width: 0 2px 2px 0;
+	  top: 10px;
+	  left: 16px;
+	  transform: rotate(45deg);
+	  height: 15px;
+	  width: 7px;
+	}
+
+	.close {
+	  position: absolute;
+	  right: 0;
+	  top: 0;
+	  padding: 12px 16px 12px 16px;
+	}
+
+	.close:hover {
+	  background-color: #f44336;
+	  color: white;
+	}
+	.addBtn{
+		cursor: pointer;
+		padding: 10px;
+		border:none;
+		transition: .2s;
+		background-color: red;
+	}
+	.addBtn:hover{
+		opacity: .6;
+		background-color: green;
+	}
+	#input{
+		  margin: 0;
+		  width: 75%;
+		  padding: 10px;
+		  float: left;
+		  font-size: 16px;
+	}
+	.myUl{
+		list-style-type: none;
+	}
+	.caret{
+		cursor: pointer;
+		user-select: none;
+	}
+	.caret::before{
+		content: "\25B6";
+		color: #ffb900;
+		margin-right: 15px;
+	}
+	.caretDown::before{
+		transform: rotate(90deg);
+	}
+	.nestedLi{
+		display: none;
+	}
+	.activeLi{
+		display: block;
+	}
+
+   /*for creating bus schedule*/
+	.bgFaculty{
+			display: flex;
+		}
+		.backgroundimg{
+			width: 100%;
+  			height: 100%;
+		    background-image: url("pics/bg10.jpeg");
+  			position: absolute;
+ 		    left: 0px;
+			top: 0px;
+			z-index: -1;
+			filter: blur(3px);
+
+		}
+		.createForm{
+                   flex: 1;
+		   font-size: 15px;
+		   color: blue;
+		   background-color: rgba(230,230,230,.6);
+		   border-radius: 15px;
+		   padding: 30px;
+		   z-index: 1;
+		   box-shadow: 10px 10px 10px black;
+		   animation-name: form_ani;
+		   animation-duration: 1s;
+                   justify-content: center;
+                   align-items: center;
+		}
+		@keyframes form_ani{
+			0%{
+				opacity: 0;
+				transform: translate(0px,-55px);
+			}
+			100%{
+				opacity: 1;
+				transform: translate(0px,0px);
+			}
+		} 
+		.btnF{
+			cursor: pointer;
+			border:none;
+			padding: 15px 30px;
+			color: white;
+			font-size: 20px;
+			background-color: blue;
+			border-radius: 3px;
+		}
+		.inputF{
+			height: 35px;
+		}

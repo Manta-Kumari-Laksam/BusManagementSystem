@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Enter Staff details</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body{
+                background-image: url("pics/s1.png");
+                background-size: cover;
+                background-repeat: no-repeat;
+                padding: 50px;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+            }
+            .myForm{
+                font-size: 30px;
+                color: black;
+                background-color: powderblue;
+                padding: 10px;
+            }
+            .btn{
+            border: none;
+            background-color: #ffffcc;
+            padding: 12px 24px;
+            cursor: pointer;
+            font-size: 15px;
+            margin-left: 5px;
+            border-radius: 20px;
+        }
+        .input{
+              width: 100%;
+              padding: 12px 20px;
+              margin: 8px 0px;
+              border: 3px solid #ccc;
+              box-sizing: border-box;
+        }
+       
+        </style>
+    </head>
+    <body>
+        <div class="myForm">
+            
+        <form name="staffForm" class="myForm" action="EditStaffServlet" method="post" onsubmit="return myValidation()">
+			<label><b>Staffname</b></label>  <br>
+			<input type="text" name="name" placeholder="Enter Staffname" class="input"><br>
+ 			<label><b>Password</b></label> <br>
+ 			<input type="password" name="pwd" placeholder="Enter Password" class="input"><br>
+ 			<label><b>Contact Number</b></label><br>
+                        <input type="text" name="phone" placeholder="Enter phone no." class="input"><br>
+                        <label><b>Address</b></label><br>
+                        <input type="text" name="addr" placeholder="Enter Address" class="input"><br>
+ 			
+ 			<input type="submit" value="Update" class="btn" style="padding: 10px 50px;">
+ 	</form>
+        </div>
+        <script>
+            function myValidation(){
+                return true;
+            }
+        </script>
+    </body>
+</html>
